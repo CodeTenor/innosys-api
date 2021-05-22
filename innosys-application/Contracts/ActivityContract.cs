@@ -1,12 +1,14 @@
 ﻿using innosys_application.IContracts;
 using innosys_application.Models.Request;
 using innosys_application.Models.Response;
+using innosys_application.Services;
 using innosys_domain;
 using innosys_infastructure;
 using innosys_infastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace innosys_application.Contracts
 {
@@ -14,11 +16,15 @@ namespace innosys_application.Contracts
     {
         private readonly IRepository<Activity> _activityRepository;
         private readonly IDbContext _context;
+        private readonly IDateService _dateService;
 
-        public ActivityContract(IRepository<Activity> activityRepository, IDbContext context)
+        public ActivityContract(IRepository<Activity> activityRepository,
+                                IDbContext context,
+                                IDateService dateService)
         {
             _activityRepository = activityRepository;
             _context = context;
+            _dateService = dateService;
         }
 
         public List<ActivityResponseModel> AddActivites(List<ActivityRequestModel> requestModel)
@@ -27,10 +33,12 @@ namespace innosys_application.Contracts
 
             foreach (var request in requestModel)
             {
+                DateTime startDate = _dateService.StringToDateTime(request.StartDate);
+
                 Activity activity = new Activity(Int32.Parse(request.Id),
                                                  request.Description,
                                                  request.Client,
-                                                 DateTime.Parse(request.StartDate),
+                                                 startDate,
                                                  Int32.Parse(request.Duration));
 
                 if (request.Task1 != "")

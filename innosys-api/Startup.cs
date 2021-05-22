@@ -1,5 +1,6 @@
 using innosys_application.Contracts;
 using innosys_application.IContracts;
+using innosys_application.Services;
 using innosys_infastructure;
 using innosys_infastructure.Repository;
 using Microsoft.AspNetCore.Builder;
@@ -37,7 +38,9 @@ namespace innosys_api
 
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
 
-            services.AddSingleton<IActivityContract, ActivityContract>();
+            services.AddScoped<IActivityContract, ActivityContract>();
+
+            services.AddScoped<IDateService, DateService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
