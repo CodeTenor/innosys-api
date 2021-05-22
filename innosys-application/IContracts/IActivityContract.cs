@@ -1,12 +1,14 @@
-﻿using System;
+﻿using innosys_application.Models.Request;
+using innosys_application.Models.Response;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace innosys_application.IContracts
 {
-    interface IActivityContract
+    public interface IActivityContract
     {
+        ActivityResponseModel GetActivityById(Guid activityId);
+        List<ActivityResponseModel> GetAllActivities();
+        List<ActivityResponseModel> AddActivites(List<ActivityRequestModel> requestModels);
     }
 }

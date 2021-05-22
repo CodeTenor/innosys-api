@@ -5,4 +5,13 @@
     <RootNamespace>innosys_application</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.0.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\innosys-domain\innosys-domain.csproj" />
+  </ItemGroup>
+
 </Project>
