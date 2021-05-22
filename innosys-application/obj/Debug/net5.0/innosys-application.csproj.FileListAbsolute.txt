@@ -13,3 +13,5 @@ D:\Development\CodeTenor\innosys\innosys-api\innosys-application\obj\Debug\net5.
 D:\Development\CodeTenor\innosys\innosys-api\innosys-application\obj\Debug\net5.0\innosys-application.dll
 D:\Development\CodeTenor\innosys\innosys-api\innosys-application\obj\Debug\net5.0\ref\innosys-application.dll
 D:\Development\CodeTenor\innosys\innosys-api\innosys-application\obj\Debug\net5.0\innosys-application.pdb
+D:\Development\CodeTenor\innosys\innosys-api\innosys-application\bin\Debug\net5.0\innosys-infastructure.dll
+D:\Development\CodeTenor\innosys\innosys-api\innosys-application\bin\Debug\net5.0\innosys-infastructure.pdb

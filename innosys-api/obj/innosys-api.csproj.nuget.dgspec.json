@@ -124,6 +124,9 @@
             "projectReferences": {
               "D:\\Development\\CodeTenor\\innosys\\innosys-api\\innosys-domain\\innosys-domain.csproj": {
                 "projectPath": "D:\\Development\\CodeTenor\\innosys\\innosys-api\\innosys-domain\\innosys-domain.csproj"
+              },
+              "D:\\Development\\CodeTenor\\innosys\\innosys-api\\innosys-infastructure\\innosys-infastructure.csproj": {
+                "projectPath": "D:\\Development\\CodeTenor\\innosys\\innosys-api\\innosys-infastructure\\innosys-infastructure.csproj"
               }
             }
           }

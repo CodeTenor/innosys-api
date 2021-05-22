@@ -15,7 +15,7 @@ namespace innosys_domain
 
         public Activity() { }
 
-        public Activity(int id, string description, string client, DateTime startDate, int duration, List<Task> tasks): base()
+        public Activity(int id, string description, string client, DateTime startDate, int duration): base()
         {
             ActivityId = id;
             Description = description;
@@ -23,13 +23,6 @@ namespace innosys_domain
             StartDate = startDate;
             DueDate = CalculateDueDate();
             Duration = duration;
-            
-            if (Tasks == null)
-            {
-                Tasks = new List<Task>();
-            }
-
-            Tasks = tasks;
         }
 
         private DateTime CalculateDueDate()

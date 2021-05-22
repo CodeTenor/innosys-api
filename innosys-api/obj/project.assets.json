@@ -1506,7 +1506,8 @@
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
           "Newtonsoft.Json": "13.0.1",
-          "innosys-domain": "1.0.0"
+          "innosys-domain": "1.0.0",
+          "innosys-infastructure": "1.0.0"
         },
         "compile": {
           "bin/placeholder/innosys-application.dll": {}

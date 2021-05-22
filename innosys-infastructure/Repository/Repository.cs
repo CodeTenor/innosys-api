@@ -40,11 +40,6 @@ namespace innosys_infastructure.Repository
             return _context.Set<T>().IncludeMultiple(includes).ToList();
         }
 
-        public IList<T> GetAllByExpression(Expression<Func<T, bool>> expression, params string[] includes)
-        {
-            return _context.Set<T>().Where(expression).IncludeMultiple(includes).ToList();
-        }
-
         public T GetById(Guid id, params string[] includes)
         {
             return _context.Set<T>().Find(id);
@@ -79,11 +74,6 @@ namespace innosys_infastructure.Repository
             {
                 throw new Exception(ex.Message);
             }
-        }
-
-        public T GetByExpression(Expression<Func<T, bool>> expression, params string[] includes)
-        {
-            return _context.Set<T>().IncludeMultiple(includes).SingleOrDefault<T>(expression);
         }
 
         public void Save()

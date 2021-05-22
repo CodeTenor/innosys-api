@@ -33,6 +33,8 @@ namespace innosys_api
         {
             services.AddDbContext<InnosysContext>(opt => opt.UseSqlServer(Configuration["ConnectionStrings:DatabaseConnection"]));
 
+            services.AddScoped<IDbContext>(provider => provider.GetService<InnosysContext>());
+
             services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
 
             services.AddSingleton<IActivityContract, ActivityContract>();

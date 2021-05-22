@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\innosys-domain\innosys-domain.csproj" />
+    <ProjectReference Include="..\innosys-infastructure\innosys-infastructure.csproj" />
   </ItemGroup>
 
 </Project>

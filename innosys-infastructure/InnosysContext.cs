@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace innosys_infastructure
 {
-    public class InnosysContext: DbContext
+    public class InnosysContext: DbContext, IDbContext
     {
         public InnosysContext(DbContextOptions<InnosysContext> options)
          : base(options)
