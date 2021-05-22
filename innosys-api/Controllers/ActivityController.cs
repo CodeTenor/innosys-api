@@ -1,4 +1,5 @@
 ﻿using CsvHelper;
+using CsvHelper.Configuration;
 using innosys_application.IContracts;
 using innosys_application.Models.Request;
 using innosys_application.Models.Response;
@@ -55,8 +56,13 @@ namespace innosys_api.Controllers
 
             List<ActivityRequestModel> request;
 
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture)
+            {
+                HasHeaderRecord = false,
+            };
+
             using (var reader = new StreamReader(filePath))
-            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            using (var csv = new CsvReader(reader, config))
             {
                 request = csv.GetRecords<ActivityRequestModel>().ToList();
             }

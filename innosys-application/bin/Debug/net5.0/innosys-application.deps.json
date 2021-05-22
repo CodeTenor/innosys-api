@@ -8,20 +8,11 @@
     ".NETCoreApp,Version=v5.0": {
       "innosys-application/1.0.0": {
         "dependencies": {
-          "CsvHelper": "27.0.4",
           "Newtonsoft.Json": "13.0.1",
           "innosys-domain": "1.0.0"
         },
         "runtime": {
           "innosys-application.dll": {}
-        }
-      },
-      "CsvHelper/27.0.4": {
-        "runtime": {
-          "lib/net5.0/CsvHelper.dll": {
-            "assemblyVersion": "27.0.0.0",
-            "fileVersion": "27.0.4.0"
-          }
         }
       },
       "Newtonsoft.Json/13.0.1": {
@@ -44,13 +35,6 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
-    },
-    "CsvHelper/27.0.4": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-hw+aw8+QLKgTyI8aqhGJond44QOG/7WTAsVgLZbIN8HBJ3m5WPEEUYGQtpecJureVZvgYwk3nqPOBrVxpPrXDg==",
-      "path": "csvhelper/27.0.4",
-      "hashPath": "csvhelper.27.0.4.nupkg.sha512"
     },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
