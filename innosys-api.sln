@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "innosys-domain", "innosys-d
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "innosys-application", "innosys-application\innosys-application.csproj", "{0DDBC42A-4669-4EF0-9E53-E558E6075C1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "innosys-infastructure", "innosys-infastructure\innosys-infastructure.csproj", "{13352C9E-3AB0-408C-917A-E342E2004888}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{0DDBC42A-4669-4EF0-9E53-E558E6075C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DDBC42A-4669-4EF0-9E53-E558E6075C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0DDBC42A-4669-4EF0-9E53-E558E6075C1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13352C9E-3AB0-408C-917A-E342E2004888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13352C9E-3AB0-408C-917A-E342E2004888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13352C9E-3AB0-408C-917A-E342E2004888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13352C9E-3AB0-408C-917A-E342E2004888}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

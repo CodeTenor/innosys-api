@@ -15,7 +15,7 @@ namespace innosys_domain
 
         public Activity() { }
 
-        public Activity(int id, string description, string client, DateTime startDate, int duration, List<Task> tasks)
+        public Activity(int id, string description, string client, DateTime startDate, int duration, List<Task> tasks): base()
         {
             ActivityId = id;
             Description = description;

@@ -11,7 +11,7 @@ namespace innosys_domain
 
         public Task() { }
 
-        public Task(Activity activity, string description)
+        public Task(Activity activity, string description): base()
         {
             Activity = activity;
             Description = description;

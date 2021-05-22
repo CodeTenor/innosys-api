@@ -67,6 +67,8 @@ namespace innosys_api.Controllers
                 request = csv.GetRecords<ActivityRequestModel>().ToList();
             }
 
+            request.RemoveAt(0);
+
             List<ActivityResponseModel> response = _activityContract.AddActivites(request);
 
             return Ok(response);

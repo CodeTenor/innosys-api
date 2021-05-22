@@ -8,11 +8,16 @@
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="27.0.4" />
     <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\innosys-application\innosys-application.csproj" />
+    <ProjectReference Include="..\innosys-infastructure\innosys-infastructure.csproj" />
   </ItemGroup>
 
 </Project>
