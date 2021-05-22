@@ -5,7 +5,7 @@ namespace innosys_domain
 {
     public class Activity: Domain
     {
-        public int Id { get; set; }
+        public int ActivityId { get; set; }
         public string Description { get; set; }
         public string Client { get; set; }
         public DateTime StartDate { get; set; }
@@ -17,7 +17,7 @@ namespace innosys_domain
 
         public Activity(int id, string description, string client, DateTime startDate, int duration, List<Task> tasks)
         {
-            Id = id;
+            ActivityId = id;
             Description = description;
             Client = client;
             StartDate = startDate;

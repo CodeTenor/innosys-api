@@ -7,7 +7,7 @@ namespace innosys_domain
         public virtual Activity Activity { get; set; }
         public string Description { get; set; }
         public bool Status { get; set; }
-        public DateTime? DateCompleted { get; set; }
+        public DateTime? CompletedDate { get; set; }
 
         public Task() { }
 
@@ -21,7 +21,7 @@ namespace innosys_domain
         public void CompleteTask()
         {
             Status = true;
-            DateCompleted = DateTime.UtcNow;
+            CompletedDate = DateTime.UtcNow;
         }
     }
 }

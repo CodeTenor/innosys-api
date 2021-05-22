@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "bicB1GyxPuiKt5SK80q0kqFl0naUdnh7514bTNs9x5PXwDoGZdtCu/6Nm81FoZupVuwWJKzwpr6RiyD8Etn9sg==",
+  "success": true,
+  "projectFilePath": "D:\\Development\\CodeTenor\\innosys\\innosys-api\\innosys-application\\innosys-application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jason\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
