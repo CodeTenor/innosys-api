@@ -8,5 +8,6 @@ namespace innosys_application.Services
          string format : yyyyMMddTHHmm
          */
         DateTime StringToDateTime(string date);
+        DateTime CaluclateBusinessDueDate(DateTime startDate, int duration);
     }
 }

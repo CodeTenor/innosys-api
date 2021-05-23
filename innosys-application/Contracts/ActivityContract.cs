@@ -35,10 +35,13 @@ namespace innosys_application.Contracts
             {
                 DateTime startDate = _dateService.StringToDateTime(request.StartDate);
 
+                DateTime dueDate = _dateService.CaluclateBusinessDueDate(startDate, Int32.Parse(request.Duration));
+
                 Activity activity = new Activity(Int32.Parse(request.Id),
                                                  request.Description,
                                                  request.Client,
                                                  startDate,
+                                                 dueDate,
                                                  Int32.Parse(request.Duration));
 
                 if (request.Task1 != "")
