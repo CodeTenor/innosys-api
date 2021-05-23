@@ -83,6 +83,11 @@ namespace innosys_application.Contracts
             return activies.Select(x => new ActivityResponseModel(x)).ToList();
         }
 
+        public string ExportSQLScript()
+        {
+            throw new NotImplementedException();
+        }
+
         public ActivityResponseModel GetActivityById(Guid activityId)
         {
             string[] includeParamsInFilterResult = new string[1] { "Task" };

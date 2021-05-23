@@ -10,5 +10,6 @@ namespace innosys_application.IContracts
         ActivityResponseModel GetActivityById(Guid activityId);
         List<ActivityResponseModel> GetAllActivities();
         List<ActivityResponseModel> AddActivites(List<ActivityRequestModel> requestModels);
+        string ExportSQLScript();
     }
 }
