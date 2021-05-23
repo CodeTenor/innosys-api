@@ -11,7 +11,5 @@ namespace innosys_infastructure.Repository
         IList<T> GetAll(params string[] includes);
         void Add(T entity);
         void Update(T entity);
-        Task Delete(Guid id);
-        void Save();
     }
 }

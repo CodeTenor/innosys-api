@@ -4,7 +4,6 @@ using smart_cabinet_api.infastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 
 namespace innosys_infastructure.Repository
 {
@@ -27,7 +26,6 @@ namespace innosys_infastructure.Repository
             try
             {
                 _context.Set<T>().Add(entity);
-                _context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -50,35 +48,11 @@ namespace innosys_infastructure.Repository
             try
             {
                 _context.Entry<T>(entity).State = EntityState.Modified;
-
-                _context.SaveChanges();
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-        }
-
-        public async System.Threading.Tasks.Task Delete(Guid id)
-        {
-            try
-            {
-                var entity = GetById(id);
-
-                _context.Set<T>().Remove(entity);
-
-                await _context.SaveChangesAsync();
-
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-
-        public void Save()
-        {
-            _context.SaveChanges();
         }
     }
 }
