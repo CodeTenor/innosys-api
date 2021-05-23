@@ -49,7 +49,7 @@ namespace innosys_application.Models.Response
             Duration = activity.Duration;
             CreatedDaste = activity.CreatedDate;
             ModifiedDate = activity.ModifiedDate;
-            Tasks = activity.Tasks.Select(x => new TaskResponseModel(x)).ToList();
+            Tasks = activity.Tasks == null ? null : activity.Tasks.Select(x => new TaskResponseModel(x)).ToList();
         }
     }
 }

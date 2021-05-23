@@ -40,6 +40,8 @@ namespace innosys_api
 
             services.AddScoped<IActivityContract, ActivityContract>();
 
+            services.AddScoped<ITaskContract, TaskContract>();
+
             services.AddScoped<IDateService, DateService>();
 
             services.AddControllers();

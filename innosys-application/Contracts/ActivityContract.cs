@@ -72,7 +72,7 @@ namespace innosys_application.Contracts
 
             }
 
-            _context.SaveChanges();
+           // _context.SaveChanges();
 
             return activies.Select(x => new ActivityResponseModel(x)).ToList();
         }
