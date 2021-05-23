@@ -8,7 +8,6 @@ using innosys_infastructure.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace innosys_application.Contracts
 {
@@ -38,36 +37,40 @@ namespace innosys_application.Contracts
                 DateTime dueDate = _dateService.CaluclateBusinessDueDate(startDate, Int32.Parse(request.Duration));
 
                 Activity activity = new Activity(Int32.Parse(request.Id),
-                                                 request.Description,
-                                                 request.Client,
+                                                 request.Description.Trim('\''),
+                                                 request.Client.Trim('\''),
                                                  startDate,
                                                  dueDate,
                                                  Int32.Parse(request.Duration));
 
-                if (request.Task1 != "")
+                List<Task> tasks = new List<Task>();
+
+                if (request.Task1.Trim('\'') != "")
                 {
-                    Task task1 = new Task(activity, request.Task1);
+                    tasks.Add(new Task(activity, request.Task1.Trim('\'')));
                 }
 
-                if (request.Task2 != "")
+                if (request.Task2.Trim('\'') != "")
                 {
-                    Task task2 = new Task(activity, request.Task2);
+                    tasks.Add(new Task(activity, request.Task2.Trim('\'')));
                 }
 
-                if (request.Task3 != "")
+                if (request.Task3.Trim('\'') != "")
                 {
-                    Task task3 = new Task(activity, request.Task3);
+                    tasks.Add(new Task(activity, request.Task3.Trim('\'')));
                 }
 
-                if (request.Task4 != "")
+                if (request.Task4.Trim('\'') != "")
                 {
-                    Task task4 = new Task(activity, request.Task4);
+                    tasks.Add(new Task(activity, request.Task4.Trim('\'')));
                 }
 
-                if (request.Task5 != "")
+                if (request.Task5.Trim('\'') != "")
                 {
-                    Task task5 = new Task(activity, request.Task5);
+                    tasks.Add(new Task(activity, request.Task5.Trim('\'')));
                 }
+
+                activity.AddTasks(tasks);
 
                 activies.Add(activity);
 
@@ -75,7 +78,7 @@ namespace innosys_application.Contracts
 
             }
 
-           // _context.SaveChanges();
+           _context.SaveChanges();
 
             return activies.Select(x => new ActivityResponseModel(x)).ToList();
         }

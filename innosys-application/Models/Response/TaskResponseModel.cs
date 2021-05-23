@@ -1,6 +1,7 @@
 ﻿using innosys_domain;
 using Newtonsoft.Json;
 using System;
+using System.Text.Json.Serialization;
 
 namespace innosys_application.Models.Response
 {
@@ -15,7 +16,8 @@ namespace innosys_application.Models.Response
         [JsonProperty("status")]
         public bool Status { get; set; }
 
-        [JsonProperty("completedDate", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonProperty("completedDate")]
+        [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public DateTime? CompletedDate { get; set; }
 
         public TaskResponseModel(Task task)
