@@ -44,7 +44,17 @@ namespace innosys_api
 
             services.AddScoped<IDateService, DateService>();
 
+            services.AddCors(options => {
+                options.AddDefaultPolicy(builder => {
+                    builder
+                    .AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+                    });
+            });
+
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "innosys_api", Version = "v1" });
@@ -64,6 +74,8 @@ namespace innosys_api
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthorization();
 

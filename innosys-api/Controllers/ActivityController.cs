@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
 
 namespace innosys_api.Controllers
@@ -72,6 +75,31 @@ namespace innosys_api.Controllers
             List<ActivityResponseModel> response = _activityContract.AddActivites(request);
 
             return Ok(response);
+        }
+
+        [Route("export")]
+        [HttpGet]
+        public async Task<IActionResult> ExportActivitiesAsync()
+        {
+            string sqlScript = _activityContract.ExportSQLScript();
+
+            string path = Directory.GetCurrentDirectory() + "sql-script.sql";
+
+            using (StreamWriter writer = new StreamWriter(path, false))
+            {
+                writer.WriteLine(sqlScript);
+            }
+
+            var memory = new MemoryStream();
+
+            using (var stream = new FileStream(path, FileMode.Open))
+            {
+                await stream.CopyToAsync(memory);
+            }
+
+            memory.Position = 0;
+
+            return File(memory, "application/sql", "sql-script.sql");
         }
     }
 }

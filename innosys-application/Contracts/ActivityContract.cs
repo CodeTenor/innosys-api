@@ -7,7 +7,9 @@ using innosys_infastructure;
 using innosys_infastructure.Repository;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 
 namespace innosys_application.Contracts
 {
@@ -16,6 +18,7 @@ namespace innosys_application.Contracts
         private readonly IRepository<Activity> _activityRepository;
         private readonly IDbContext _context;
         private readonly IDateService _dateService;
+        public readonly string BIN_FOLDER_LOCATION = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
         public ActivityContract(IRepository<Activity> activityRepository,
                                 IDbContext context,
@@ -85,12 +88,52 @@ namespace innosys_application.Contracts
 
         public string ExportSQLScript()
         {
-            throw new NotImplementedException();
+            string sqlString = File.ReadAllText(Path.Combine(BIN_FOLDER_LOCATION, @"Template\sql-script.sql"));
+
+            string[] includeParamsInFilterResult = new string[1] { "Tasks" };
+
+            List<Activity> activities = _activityRepository.GetAll(includeParamsInFilterResult).ToList();
+
+            string insertActivity = "";
+
+            string insertTask = "";
+
+            foreach (var activity in activities)
+            {
+                if (insertActivity == "")
+                {
+                    insertActivity =  $"INSERT [dbo].[Activity] ([Id], [ActivityId], [Description], [Client], [StartDate], [DueDate], [Duration], [CreatedDate], [ModifiedDate]) VALUES (N'{activity.Id}', {activity.ActivityId}, N'{activity.Description}', N'{activity.Client}', CAST(N'{activity.StartDate}' AS DateTime2), CAST(N'{activity.DueDate}' AS DateTime2), {activity.Duration}, CAST(N'{activity.CreatedDate}' AS DateTime2), CAST(N'{activity.ModifiedDate}' AS DateTime2))\n";
+                }
+                else
+                {
+                    insertActivity = $"{insertActivity}INSERT [dbo].[Activity] ([Id], [ActivityId], [Description], [Client], [StartDate], [DueDate], [Duration], [CreatedDate], [ModifiedDate]) VALUES (N'{activity.Id}', {activity.ActivityId}, N'{activity.Description}', N'{activity.Client}', CAST(N'{activity.StartDate}' AS DateTime2), CAST(N'{activity.DueDate}' AS DateTime2), {activity.Duration}, CAST(N'{activity.CreatedDate}' AS DateTime2), CAST(N'{activity.ModifiedDate}' AS DateTime2))\n";
+                }
+
+                foreach (var task in activity.Tasks)
+                {
+                    string completedDate = task.CompletedDate == null ? "NULL" : $"CAST(N'{task.CompletedDate}' AS DateTime2)";
+
+                    if (insertTask == "")
+                    {
+                        insertTask = $"INSERT [dbo].[Task] ([Id], [ActivityId], [Description], [Status], [CompletedDate], [CreatedDate], [ModifiedDate]) VALUES (N'{task.Id}', N'{activity.Id}', N'{task.Description}', {task.Status}, {completedDate}, CAST(N'{task.CreatedDate}' AS DateTime2), CAST(N'{task.ModifiedDate}' AS DateTime2))\n";
+                    }
+                    else
+                    {
+                        insertTask = $"{insertTask}INSERT [dbo].[Task] ([Id], [ActivityId], [Description], [Status], [CompletedDate], [CreatedDate], [ModifiedDate]) VALUES (N'{task.Id}', N'{activity.Id}', N'{task.Description}', {task.Status}, {completedDate}, CAST(N'{task.CreatedDate}' AS DateTime2), CAST(N'{task.ModifiedDate}' AS DateTime2))\n";
+                    }
+                }
+            }
+
+            sqlString = sqlString.Replace("##ACTIVITY##", insertActivity, ignoreCase: false, culture: null);
+
+            sqlString = sqlString.Replace("##TASK##", insertTask, ignoreCase: false, culture: null);
+
+            return sqlString;
         }
 
         public ActivityResponseModel GetActivityById(Guid activityId)
         {
-            string[] includeParamsInFilterResult = new string[1] { "Task" };
+            string[] includeParamsInFilterResult = new string[1] { "Tasks" };
 
             Activity activity = _activityRepository.GetById(activityId, includeParamsInFilterResult);
 
@@ -104,7 +147,7 @@ namespace innosys_application.Contracts
 
         public List<ActivityResponseModel> GetAllActivities()
         {
-            string[] includeParamsInFilterResult = new string[1] { "Task" };
+            string[] includeParamsInFilterResult = new string[1] { "Tasks" };
 
             List<Activity> activities = _activityRepository.GetAll(includeParamsInFilterResult).ToList();
 
