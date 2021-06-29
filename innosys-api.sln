@@ -3,13 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "innosys-api", "innosys-api\innosys-api.csproj", "{0DAC56E7-53CB-419F-9680-7F0650FC0796}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "innosys-api", "innosys-api\innosys-api.csproj", "{0DAC56E7-53CB-419F-9680-7F0650FC0796}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "innosys-domain", "innosys-domain\innosys-domain.csproj", "{EED649DF-07E4-4300-951E-74BFE61BA613}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "innosys-domain", "innosys-domain\innosys-domain.csproj", "{EED649DF-07E4-4300-951E-74BFE61BA613}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "innosys-application", "innosys-application\innosys-application.csproj", "{0DDBC42A-4669-4EF0-9E53-E558E6075C1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "innosys-application", "innosys-application\innosys-application.csproj", "{0DDBC42A-4669-4EF0-9E53-E558E6075C1B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "innosys-infastructure", "innosys-infastructure\innosys-infastructure.csproj", "{13352C9E-3AB0-408C-917A-E342E2004888}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "innosys-infastructure", "innosys-infastructure\innosys-infastructure.csproj", "{13352C9E-3AB0-408C-917A-E342E2004888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "innosys-unit-tests", "innosys-unit-tests\innosys-unit-tests.csproj", "{9DD0D9FA-CE32-4D1B-8F4E-AA18ECE12966}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "innosys-unit-tests-2", "innosys-unit-tests-2\innosys-unit-tests-2.csproj", "{DF410CE5-9B8A-4B85-88D5-2A0B2B8BEFB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{13352C9E-3AB0-408C-917A-E342E2004888}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{13352C9E-3AB0-408C-917A-E342E2004888}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{13352C9E-3AB0-408C-917A-E342E2004888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DD0D9FA-CE32-4D1B-8F4E-AA18ECE12966}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DD0D9FA-CE32-4D1B-8F4E-AA18ECE12966}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DD0D9FA-CE32-4D1B-8F4E-AA18ECE12966}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DD0D9FA-CE32-4D1B-8F4E-AA18ECE12966}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF410CE5-9B8A-4B85-88D5-2A0B2B8BEFB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF410CE5-9B8A-4B85-88D5-2A0B2B8BEFB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF410CE5-9B8A-4B85-88D5-2A0B2B8BEFB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF410CE5-9B8A-4B85-88D5-2A0B2B8BEFB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

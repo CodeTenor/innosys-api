@@ -5,11 +5,8 @@ using System.Text.Json.Serialization;
 
 namespace innosys_application.Models.Response
 {
-    public class TaskResponseModel
+    public record TaskResponseModel: ResponseModel<Task>
     {
-        [JsonProperty("id")]
-        public Guid Id { get; set; }
-
         [JsonProperty("description")]
         public string Description { get; set; }
 
@@ -20,9 +17,8 @@ namespace innosys_application.Models.Response
         [System.Text.Json.Serialization.JsonIgnore(Condition = JsonIgnoreCondition.WhenWritingNull)]
         public DateTime? CompletedDate { get; set; }
 
-        public TaskResponseModel(Task task)
+        public TaskResponseModel(Task task): base(task)
         {
-            Id = task.Id;
             Description = task.Description;
             Status = task.Status;
             CompletedDate = task.CompletedDate;

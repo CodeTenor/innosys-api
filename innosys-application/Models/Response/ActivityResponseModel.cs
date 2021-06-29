@@ -6,11 +6,8 @@ using System.Linq;
 
 namespace innosys_application.Models.Response
 {
-    public class ActivityResponseModel
+    public record ActivityResponseModel: ResponseModel<Activity>
     {
-        [JsonProperty("id")]
-        public Guid Id { get; set; }
-
         [JsonProperty("activityId")]
         public int ActivityId { get; set; }
 
@@ -32,23 +29,14 @@ namespace innosys_application.Models.Response
         [JsonProperty("tasks")]
         public List<TaskResponseModel> Tasks { get; set; }
 
-        [JsonProperty("createdDate")]
-        public DateTime CreatedDaste { get; set; }
-
-        [JsonProperty("modifiedDate")]
-        public DateTime ModifiedDate { get; set; }
-
-        public ActivityResponseModel(Activity activity)
+        public ActivityResponseModel(Activity activity): base(activity)
         {
-            Id = activity.Id;
             ActivityId = activity.ActivityId;
             Description = activity.Description;
             Client = activity.Client;
             StartDate = activity.StartDate;
             DueDate = activity.DueDate;
             Duration = activity.Duration;
-            CreatedDaste = activity.CreatedDate;
-            ModifiedDate = activity.ModifiedDate;
             Tasks = activity.Tasks == null ? null : activity.Tasks.Select(x => new TaskResponseModel(x)).ToList();
         }
     }
