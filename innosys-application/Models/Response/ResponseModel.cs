@@ -1,12 +1,13 @@
 ﻿using innosys_domain;
 using Newtonsoft.Json;
 using System;
+using System.Runtime.Serialization;
 
 namespace innosys_application.Models.Response
 {
     public record ResponseModel<T> where T: Domain
     {
-        [JsonProperty("id")]
+        [JsonProperty("id", Order = -2)]
         public Guid Id { get; set; }
 
         [JsonProperty("createdDate")]
